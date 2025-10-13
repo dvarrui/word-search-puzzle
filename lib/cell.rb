@@ -1,36 +1,32 @@
 class Cell
   EMPTY = '_'
 
-  attr_reader :row, :col, :data
+  attr_reader :data
 
-  def initialize(row, col)
-    @row = row
-    @col = col
-    reset
+  def initialize()
+    @amount = 0
+    @data = EMPTY
   end
 
   def empty?
     @data == EMPTY
   end
 
-  def reset
-    @amount = 0
-    @data = EMPTY
-  end
-
-  def add(data)
+  def push(data)
     if empty? || @data == data
       @data = data
       @amount += 1
     else
-      raise "Cell.add(#{data}): current data (#{@data}) different from new one!"
+      raise "Cell.push(#{data}): current data (#{@data}) different from new one!"
     end
   end
 
-  def remove
-    raise "Cell.remove: No data!" if @amount.zero?
+  def pull
+    raise "Cell.pull: No data!" if @amount.zero?
     @amount -= 1
+    current_data = @data
     @data = EMPTY if @amount.zero?
+    return current_data
   end
 
   def to_s

@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'debug'
 require_relative 'lib/grid'
 require_relative 'lib/word_search_puzzle'
 
@@ -13,4 +14,4 @@ grid.add('gris', 4, 7, :s)
 grid.show
 
 words = %w[negro gris amarillo]
-word_search = WordSearchPuzzle.new(words: words, grid_size:10)
+word_search_puzzle = WordSearchPuzzle.new(words: words, grid_size:10)

@@ -19,20 +19,14 @@ class Grid
     @matriz = []
     (0..size).each do |row|
       data = []
-      (0..size).each do |col|
-        data << Cell.new(row, col) 
-      end
-      @matriz << data
-    end
+      (0..size).each { |col| data <<  Cell.new }
+      @matriz[row] = data
+    end 
   end
 
   def show
     puts "Show grid:"
-    @matriz.each do |row|
-      text = ""
-      row.each { |cell| text += cell.to_s }
-      puts text
-    end
+    @matriz.each { |row| puts row.map { _1.to_s }.join }
   end
 
   def add(word, row, col, move)
@@ -41,12 +35,12 @@ class Grid
     letters = word.chars
     arow = row
     acol = col
-    letters.each do |c|
+    letters.each do |letter|
       return false if acol >= @size || arow >= @size
 
       cell = @matriz[arow][acol]
-      if cell.empty? || cell.data == c
-        cell.add c
+      if cell.empty? || cell.data == letter
+        cell.push letter
         arow += row_step
         acol += col_step
       end
