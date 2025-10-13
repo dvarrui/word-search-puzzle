@@ -1,6 +1,6 @@
 require_relative 'grid'
 
-class WordSearch
+class WordSearchPuzzle
   attr_reader :grid
 
   def initialize(words: words, grid_size: size)
