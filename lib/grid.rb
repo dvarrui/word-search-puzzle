@@ -28,10 +28,10 @@ class Grid
 
   def show
     puts "Show grid:"
-    @matriz.each { |row| puts row.map { it.to_s }.join }
+    @matriz.each { |row| puts row.map { it.data.to_s }.join }
   end
 
-  def get_coords(word, row, col, direction)
+  def get_sequence(word, row, col, direction)
     step = Grid.directions[direction]
     arow = row
     acol = col
@@ -51,9 +51,15 @@ class Grid
     coords
   end
 
-  def set_coords(coords)
+  def set_sequence(coords)
     coords.each do |coord|
       @matriz[coord.row][coord.col].push(coord.data)
+    end
+  end
+
+  def unset_sequence(coords)
+    coords.each do |coord|
+      @matriz[coord.row][coord.col].pull
     end
   end
 end

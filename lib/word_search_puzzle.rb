@@ -4,17 +4,17 @@ class WordSearchPuzzle
   attr_reader :grid
 
   def initialize(words: words, size: size)
+    # Sort words from longest to smallest
     @words = words.sort_by { it.length }.reverse
     @size = size
-    @solution = false
     @grid = nil
   end
 
   def solution?
-    @solution
+    !@grid.nil?
   end
 
-  def process
+  def calculate
     grid = Grid.new(@size)
     @grid = find_solution(@words.dup, grid)
   end

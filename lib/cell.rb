@@ -1,11 +1,13 @@
 class Cell
   EMPTY = "_"
 
-  attr_reader :data
+  attr_reader :data, :count
+  attr_accessor :fake
 
   def initialize
-    @amount = 0
+    @count = 0
     @data = EMPTY
+    @fake = false
   end
 
   def empty?
@@ -15,21 +17,17 @@ class Cell
   def push(data)
     if empty? || @data == data
       @data = data
-      @amount += 1
+      @count += 1
     else
-      raise "Cell.push(#{data}): current data (#{@data}) different from new one!"
+      raise "Cell.push: new data(#{data}) is not equal to current data(#{@data})!"
     end
   end
 
   def pull
-    raise "Cell.pull: No data!" if @amount.zero?
-    @amount -= 1
+    raise "Cell.pull: No data!" if @count.zero?
+    @count -= 1
     current_data = @data
-    @data = EMPTY if @amount.zero?
+    @data = EMPTY if @count.zero?
     current_data
-  end
-
-  def to_s
-    @data.to_s
   end
 end
