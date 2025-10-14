@@ -6,7 +6,7 @@ class WordSearchPuzzle
   def initialize(words: words, grid_size: size)
     @words = words.sort_by { it.length }.reverse
     @size = grid_size
-    @solution = :not_solution
+    @solution = false
   end
 
   def process
@@ -19,26 +19,25 @@ class WordSearchPuzzle
 
     word = words.delete_at(0)
     words.delete_at(0)
-    locations = grid.find_available_locations_for(word)
+    locations = get_available_locations(word)
 
-    return :no_solution if locations.empty?
+    return false if locations.empty?
     find_solution(words, grid)
   end
 
-  def has_a_solution?
-    @solution != :no_solution
+  def solution?
+    @solution
   end
 
   private
 
-  def find_available_locations_for(word)
+  def get_available_locations(word)
     locations = []
-    (0..size).each do |row|
-      (0..@size).each | col |
-        Grid.directions.each do |dir|
-          if fit?(word, row, col)
-            locations << {word: word, row: row, col: col}
-          end
+    (0..@size).each do |row|
+      (0..@size).each |col|
+        Grid.directions.keys.each do |direction|
+          location = @grid.get_coords(word, row, col, direction)
+          locations << location unless location.empty?
         end
     end
     locations

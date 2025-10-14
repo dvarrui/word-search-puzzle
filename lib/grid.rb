@@ -14,6 +14,8 @@ class Grid
     }
   end
 
+  Coord = Data.define(:row, :col, :data)
+
   def initialize(size)
     @size = size
     @matriz = []
@@ -29,22 +31,29 @@ class Grid
     @matriz.each { |row| puts row.map { it.to_s }.join }
   end
 
-  def add(word, row, col, move)
-    row_step = Grid.directions[move][:row]
-    col_step = Grid.directions[move][:col]
-    letters = word.chars
+  def get_coords(word, row, col, direction)
+    step = Grid.directions[direction]
     arow = row
     acol = col
-    letters.each do |letter|
-      return false if acol >= @size || arow >= @size
+    coords = []
+    word.chars.each do |letter|
+      return [] if (acol >= @size || arow >= @size || acol < 0 || arow < 0)
 
       cell = @matriz[arow][acol]
       if cell.empty? || cell.data == letter
-        cell.push letter
-        arow += row_step
-        acol += col_step
+        coords << Coord.new(row: arow, col: acol, data: letter)
+        arow += step[:row]
+        acol += step[:col]
+      else 
+        return []
       end
     end
-    true
+    coords
+  end
+
+  def set_coords(coords)
+    coords.each do |coord|
+      @matriz[coord.row][coord.col].push(coord.data)
+    end
   end
 end

@@ -14,11 +14,13 @@ class CellTest < Test::Unit::TestCase
 
   test "Push and pull" do
     cell = Cell.new
+
     cell.push("A")
     assert_equal("A", cell.data)
-    assert_equal(false, cell.empy?)
-    data = cell.push
-    assert_equal(true, cell.empy?)
+    assert_equal(false, cell.empty?)
+
+    data = cell.pull
+    assert_equal(true, cell.empty?)
     assert_equal("A", data)
   end
 end
