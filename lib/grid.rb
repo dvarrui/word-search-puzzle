@@ -1,4 +1,4 @@
-require_relative 'cell'
+require_relative "cell"
 
 class Grid
   def self.directions
@@ -10,7 +10,7 @@ class Grid
       s: {row: 1, col: 0},
       sw: {row: 1, col: -1},
       w: {row: 0, col: -1},
-      nw: {row: -1, col: -1},
+      nw: {row: -1, col: -1}
     }
   end
 
@@ -19,14 +19,14 @@ class Grid
     @matriz = []
     (0..size).each do |row|
       data = []
-      (0..size).each { |col| data <<  Cell.new }
+      (0..size).each { |col| data << Cell.new }
       @matriz[row] = data
-    end 
+    end
   end
 
   def show
     puts "Show grid:"
-    @matriz.each { |row| puts row.map { _1.to_s }.join }
+    @matriz.each { |row| puts row.map { it.to_s }.join }
   end
 
   def add(word, row, col, move)

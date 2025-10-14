@@ -1,15 +1,15 @@
-require_relative 'grid'
+require_relative "grid"
 
 class WordSearchPuzzle
   attr_reader :grid
 
   def initialize(words: words, grid_size: size)
-    @words = words.sort_by { _1.length}.reverse
+    @words = words.sort_by { it.length }.reverse
     @size = grid_size
     @solution = :not_solution
   end
 
-  def process    
+  def process
     grid = Grid.new(@size)
     @solution = find_solution(@words.dup, grid)
   end
@@ -29,19 +29,18 @@ class WordSearchPuzzle
     @solution != :no_solution
   end
 
-private
+  private
 
   def find_available_locations_for(word)
     locations = []
     (0..size).each do |row|
-      (0..@size).each |col|
+      (0..@size).each | col |
         Grid.directions.each do |dir|
           if fit?(word, row, col)
-            locations << { word: word, row: row, col: col }
+            locations << {word: word, row: row, col: col}
           end
-      end
+        end
     end
     locations
   end
-
 end

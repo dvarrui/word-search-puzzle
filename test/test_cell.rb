@@ -7,14 +7,14 @@ class CellTest < Test::Unit::TestCase
     cell = Cell.new
     assert_equal(true, cell.empty?)
 
-    #assert do
+    # assert do
     #  ::Word::Search::Puzzle.const_defined?(:VERSION)
-    #end
+    # end
   end
 
   test "Push and pull" do
     cell = Cell.new
-    cell.push('A')
+    cell.push("A")
     assert_equal("A", cell.data)
     assert_equal(false, cell.empy?)
     data = cell.push

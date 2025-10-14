@@ -1,9 +1,9 @@
 class Cell
-  EMPTY = '_'
+  EMPTY = "_"
 
   attr_reader :data
 
-  def initialize()
+  def initialize
     @amount = 0
     @data = EMPTY
   end
@@ -26,7 +26,7 @@ class Cell
     @amount -= 1
     current_data = @data
     @data = EMPTY if @amount.zero?
-    return current_data
+    current_data
   end
 
   def to_s
