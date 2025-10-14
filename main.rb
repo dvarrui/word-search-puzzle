@@ -7,22 +7,29 @@ words = %w[negro azul gris verde naranja rosa rojo blanco amarillo]
 
 grid = Grid.new(10)
 
-location1 = grid.get_sequence("negro", 1, 2, :e)
-grid.set_coords(location1)
+sequences = []
+sequences << grid.get_sequence("negro", 1, 2, :e)
+grid.set_sequence(sequences[0])
 
-location2 = grid.get_secuence("gato", 4, 7, :w)
-grid.set_coords(location2)
+sequences << grid.get_sequence("gato", 4, 7, :w)
+grid.set_sequence(sequences[1])
 
-location3 = grid.get_sequence("gris", 4, 7, :s)
-grid.set_coords(location3)
+sequences << grid.get_sequence("gris", 4, 7, :s)
+grid.set_sequence(sequences[2])
 grid.show
 
-location4 = grid.get_sequence("abc", 1, 1, :e)
-grid.set_coords(location4)
+sequences << grid.get_sequence("abc", 1, 1, :e)
+grid.set_sequence(sequences[3])
 grid.show
 
-grid.unset_sequence(location1)
+grid.unset_sequence(sequences[0])
 grid.show
 
+sequences[3] = grid.get_sequence("abc", 1, 1, :e)
+grid.set_sequence(sequences[3])
+grid.show
+
+grid.unset_sequence(sequences[1])
+grid.show
 words = %w[negro gris amarillo]
 WordSearchPuzzle.new(words: words, size: 10)
