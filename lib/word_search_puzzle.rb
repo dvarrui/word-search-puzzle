@@ -3,30 +3,46 @@ require_relative "grid"
 class WordSearchPuzzle
   attr_reader :grid
 
-  def initialize(words: words, grid_size: size)
+  def initialize(words: words, size: size)
     @words = words.sort_by { it.length }.reverse
-    @size = grid_size
+    @size = size
     @solution = false
+    @grid = nil
+  end
+
+  def solution?
+    @solution
   end
 
   def process
     grid = Grid.new(@size)
-    @solution = find_solution(@words.dup, grid)
+    @grid = find_solution(@words.dup, grid)
   end
 
   def find_solution(words, grid)
     return grid if words.size.zero?
 
+    # Choose one word
     word = words.delete_at(0)
     words.delete_at(0)
-    locations = get_available_locations(word)
+    available_locations = get_available_locations(word)
+    if available_locations.empty?
+      @solution = false
+      return nil
+    end
 
-    return false if locations.empty?
-    find_solution(words, grid)
-  end
+    available_locations.shuffle!
+    available_locations.each do |selected_location|
+      grid.set_coords(selected_location)
+      solution = find_solution(words, grid)
+      if solution.empty?
+        grid.unset_coords(selected_location)
+      else
+        return solution
+      end
+    end
 
-  def solution?
-    @solution
+    grid
   end
 
   private

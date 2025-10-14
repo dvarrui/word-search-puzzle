@@ -22,4 +22,4 @@ grid.set_coords(location)
 grid.show
 
 words = %w[negro gris amarillo]
-WordSearchPuzzle.new(words: words, grid_size: 10)
+WordSearchPuzzle.new(words: words, size: 10)
