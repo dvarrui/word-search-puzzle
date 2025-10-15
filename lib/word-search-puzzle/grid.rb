@@ -26,10 +26,6 @@ class Grid
     end
   end
 
-  def show
-    @matriz.each { |row| puts row.map { " "+it.data.to_s }.join }
-  end
-
   def find_sequence(word, first_row, first_col, direction)
     step = Grid.directions[direction]
     row = first_row
@@ -56,5 +52,14 @@ class Grid
 
   def unset_sequence(coords)
     coords.each { @matriz[it.row][it.col].pop }
+  end
+
+  def show
+    @matriz.each { |row| puts row.map { " "+it.data.to_s }.join }
+  end
+
+  def to_plain_text
+    lines = @matriz.map { |row| row.map { " "+it.data.to_s }.join }
+    lines.join("\n")
   end
 end

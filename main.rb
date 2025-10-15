@@ -8,4 +8,4 @@ builder = WordSearchPuzzle::Builder.new
 builder.words = words
 builder.size = 9
 builder.create_puzzle
-builder.puzzle.show
+puts builder.puzzle.to_plain_text
