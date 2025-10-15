@@ -31,7 +31,7 @@ class Grid
     @matriz.each { |row| puts row.map { it.data.to_s }.join }
   end
 
-  def get_sequence(word, row, col, direction)
+  def find_sequence(word, row, col, direction)
     step = Grid.directions[direction]
     arow = row
     acol = col

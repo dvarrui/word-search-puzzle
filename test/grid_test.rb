@@ -3,9 +3,9 @@
 require "test_helper"
 
 class GridTest < Test::Unit::TestCase
-  test "Get sequence for 1 word east" do
+  test "Find sequence for 1 word east" do
     grid = Grid.new(10)
-    sequence = grid.get_sequence("black", 1, 2, :e)
+    sequence = grid.find_sequence("black", 1, 2, :e)
     assert_equal(5, sequence.length)
 
     coord = sequence[0]
@@ -24,16 +24,16 @@ class GridTest < Test::Unit::TestCase
     assert_equal('a', coord.data)
   end
 
-  test "Fail getting sequence for 1 word east" do
+  test "Fail finding sequence for 1 word east" do
     grid = Grid.new(3)
-    sequence = grid.get_sequence("black", 1, 2, :e)
+    sequence = grid.find_sequence("black", 1, 2, :e)
     assert_equal(0, sequence.length)
     assert_equal([], sequence)
   end
 
   test "Get sequence for 1 word south" do
     grid = Grid.new(10)
-    sequence = grid.get_sequence("black", 1, 2, :s)
+    sequence = grid.find_sequence("black", 1, 2, :s)
     assert_equal(5, sequence.length)
 
     coord = sequence[0]
@@ -54,15 +54,15 @@ class GridTest < Test::Unit::TestCase
 
   test "Set sequence for 2 word overlap east" do
     grid = Grid.new(5)
-    sequence = grid.get_sequence("black", 0, 0, :e)
+    sequence = grid.find_sequence("black", 0, 0, :e)
     assert_equal(5, sequence.length)
     grid.set_sequence(sequence)
 
-    sequence = grid.get_sequence("blue", 0, 0, :s)
+    sequence = grid.find_sequence("blue", 0, 0, :s)
     assert_equal(4, sequence.length)
     grid.set_sequence(sequence)
 
-    sequence = grid.get_sequence("red", 1, 0, :e)
+    sequence = grid.find_sequence("red", 1, 0, :e)
     assert_equal(0, sequence.length)
   end
 end
