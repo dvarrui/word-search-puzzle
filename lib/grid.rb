@@ -28,22 +28,22 @@ class Grid
 
   def show
     puts "Show grid:"
-    @matriz.each { |row| puts row.map { it.data.to_s }.join }
+    @matriz.each { |row| puts row.map { " "+it.data.to_s }.join }
   end
 
-  def find_sequence(word, row, col, direction)
+  def find_sequence(word, first_row, first_col, direction)
     step = Grid.directions[direction]
-    arow = row
-    acol = col
+    row = first_row
+    col = first_col
     coords = []
     word.chars.each do |letter|
-      return [] if (acol >= @size || arow >= @size || acol < 0 || arow < 0)
+      return [] if (col >= @size || row >= @size || col < 0 || row < 0)
 
-      cell = @matriz[arow][acol]
+      cell = @matriz[row][col]
       if cell.empty? || cell.data == letter
-        coords << Coord.new(row: arow, col: acol, data: letter)
-        arow += step[:row]
-        acol += step[:col]
+        coords << Coord.new(row: row, col: col, data: letter)
+        row += step[:row]
+        col += step[:col]
       else 
         return []
       end
