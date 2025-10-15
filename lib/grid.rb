@@ -52,14 +52,10 @@ class Grid
   end
 
   def set_sequence(coords)
-    coords.each do |coord|
-      @matriz[coord.row][coord.col].push(coord.data)
-    end
+    coords.each { @matriz[it.row][it.col].push(it.data) }
   end
 
   def unset_sequence(coords)
-    coords.each do |coord|
-      @matriz[coord.row][coord.col].pop
-    end
+    coords.each { @matriz[it.row][it.col].pop }
   end
 end
