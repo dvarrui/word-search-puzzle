@@ -52,7 +52,7 @@ class GridTest < Test::Unit::TestCase
     assert_equal('a', coord.data)
   end
 
-  test "Set sequence for 2 word overlap east" do
+  test "Set sequence for 2 overlaped words east" do
     grid = Grid.new(5)
     sequence = grid.find_sequence("black", 0, 0, :e)
     assert_equal(5, sequence.length)
@@ -64,5 +64,18 @@ class GridTest < Test::Unit::TestCase
 
     sequence = grid.find_sequence("red", 1, 0, :e)
     assert_equal(0, sequence.length)
+  end
+
+  test "Unset sequence with 2 overlaped words " do
+    grid = Grid.new(5)
+    sequence1 = grid.find_sequence("black", 0, 0, :e)
+    grid.set_sequence(sequence1)
+
+    sequence2 = grid.find_sequence("red", 0, 1, :e)
+    assert_equal(0, sequence2.length)
+
+    grid.unset_sequence(sequence1)
+    sequence2 = grid.find_sequence("red", 0, 1, :e)
+    assert_equal(3, sequence2.length)
   end
 end
