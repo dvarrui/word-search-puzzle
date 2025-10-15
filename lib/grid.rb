@@ -59,7 +59,7 @@ class Grid
 
   def unset_sequence(coords)
     coords.each do |coord|
-      @matriz[coord.row][coord.col].pull
+      @matriz[coord.row][coord.col].pop
     end
   end
 end

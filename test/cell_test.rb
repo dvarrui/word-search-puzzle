@@ -22,7 +22,7 @@ class CellTest < Test::Unit::TestCase
     assert_equal(false, cell.empty?)
   end
 
-  test "Push and pull" do
+  test "Push and pop" do
     cell = Cell.new
     cell.push("A")
 
@@ -30,7 +30,7 @@ class CellTest < Test::Unit::TestCase
     assert_equal(1, cell.count)
     assert_equal(false, cell.empty?)
 
-    data = cell.pull
+    data = cell.pop
     assert_equal("A", data)
     assert_equal(0, cell.count)
     assert_equal(true, cell.empty?)

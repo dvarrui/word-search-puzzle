@@ -23,8 +23,8 @@ class Cell
     end
   end
 
-  def pull
-    raise "Cell.pull: No data!" if @count.zero?
+  def pop
+    raise "Cell.pop: No data!" if @count.zero?
     @count -= 1
     current_data = @data
     @data = EMPTY if @count.zero?
