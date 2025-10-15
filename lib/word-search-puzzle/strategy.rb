@@ -1,4 +1,6 @@
 
+require_relative "grid"
+
 class Strategy
   attr_reader :grid
 

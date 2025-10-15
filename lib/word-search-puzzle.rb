@@ -1,12 +1,8 @@
-require_relative "strategy"
+require_relative "word-search-puzzle/strategy"
 
 module WordSearchPuzzle
-  class WordSearchPuzzle
-    def initialize(words: words, size: size)
-      @words = words
-      @size = size
-      @grid = nil
-    end
+  class Builder
+    attr_accessor :words, :size
   
     def create_puzzle
       strategy = Strategy.new(@words, @size)
