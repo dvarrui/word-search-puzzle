@@ -2,10 +2,10 @@
 
 require "test_helper"
 
-class Word::Search::PuzzleTest < Test::Unit::TestCase
+class WordSearchPuzzleTest < Test::Unit::TestCase
   test "VERSION" do
     assert do
-      ::Word::Search::Puzzle.const_defined?(:VERSION)
+      ::WordSearchPuzzle.const_defined?(:VERSION)
     end
   end
 

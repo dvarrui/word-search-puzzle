@@ -27,7 +27,6 @@ class Grid
   end
 
   def show
-    puts "Show grid:"
     @matriz.each { |row| puts row.map { " "+it.data.to_s }.join }
   end
 

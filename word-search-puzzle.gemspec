@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative "lib/word/search/puzzle/version"
+require_relative "lib/word-search-puzzle/version"
 
 Gem::Specification.new do |spec|
   spec.name = "word-search-puzzle"
-  spec.version = Word::Search::Puzzle::VERSION
-  spec.authors = ["David Vargas"]
-  spec.email = ["dvarrui@protonmail.com"]
+  spec.version = WordSearchPuzzle::VERSION
+  spec.authors = ["David Vargas Ruiz"]
+  spec.email = ["dvarrui@proton.me"]
 
   spec.summary = "TODO: Write a short summary, because RubyGems requires one."
   spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage = "https://github.com/dvarrui/word-search-puzzle"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
