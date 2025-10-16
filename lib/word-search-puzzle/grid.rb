@@ -33,9 +33,7 @@ class Grid
     col = first_col
     coords = []
     word.chars.each do |letter|
-      if (row >= @size || col >= @size || row < 0 || col < 0)
-        return []
-      end
+      return [] if (row >= @size || col >= @size || row < 0 || col < 0)
 
       cell = @matrix[row][col]
       if cell.empty? || cell.data == letter
@@ -57,12 +55,8 @@ class Grid
     coords.each { @matrix[it.row][it.col].pop }
   end
 
-  def show
-    @matrix.each { |row| puts row.map { " "+it.data.to_s }.join }
-  end
-
   def render(color: false, padding: :default)
-    padding = [ '_' ] unless padding
+    padding = [ '.' ] unless padding
     padding = ('A'..'Z').to_a if padding == :default
 
     lines = @matrix.map do |row|

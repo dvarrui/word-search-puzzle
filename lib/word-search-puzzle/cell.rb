@@ -1,5 +1,5 @@
 class Cell
-  EMPTY = "_"
+  EMPTY = ""
 
   attr_reader :data, :count
 
