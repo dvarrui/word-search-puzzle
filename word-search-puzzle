@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative "lib/word-search-puzzle/cli"
+require "debug"
 
 # Start command line interface
 CLI.start(ARGV)

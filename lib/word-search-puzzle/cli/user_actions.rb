@@ -27,6 +27,8 @@ class UserActions
   end
 
   def read_locks(locks)
+    return [] if locks.nil?
+
     if File.exist?(locks)
       data = File.readlines(locks)
       data.map! do 
