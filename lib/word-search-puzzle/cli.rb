@@ -22,6 +22,7 @@ class CLI < Thor
   option :words, required: true
   option :color, type: :boolean
   option :padding
+  option :locks
   desc "create [--words=WORDS][--size=SIZE][--color]", "Create puzzle"
   long_desc <<-LONGDESC
 
@@ -32,6 +33,8 @@ class CLI < Thor
   - [--color], Indicates whether to display the output with color. Default value false
 
   - [--padding=LIST], comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
+
+  - [--locks=FILEPATH], Filename with list of the coordinates of the locked cells 
 
   LONGDESC
   def create
