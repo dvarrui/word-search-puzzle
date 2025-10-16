@@ -16,6 +16,7 @@ class Grid
   end
 
   Coord = Data.define(:row, :col, :data)
+  attr_reader :size
 
   def initialize(size, locks=[])
     @size = size

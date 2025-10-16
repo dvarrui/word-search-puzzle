@@ -4,11 +4,10 @@ require_relative "grid"
 class Strategy
   attr_reader :grid
 
-  def initialize(words, size, locks)
+  def initialize(words, grid)
     # Sort words from longest to smallest
     @words = words.sort_by { it.length }.reverse
-    @size = size
-    @initial_grid = Grid.new(@size, locks)
+    @initial_grid = grid
     @grid = nil
   end
 
@@ -52,8 +51,8 @@ class Strategy
 
   def get_available_locations(word, grid)
     locations = []
-    (0...@size).each do |row|
-      (0...@size).each do |col|
+    (0...grid.size).each do |row|
+      (0...grid.size).each do |col|
         Grid.directions.keys.each do |direction|
           location = grid.find_sequence(word, row, col, direction)
           locations << location unless location.empty?
