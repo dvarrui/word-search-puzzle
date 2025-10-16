@@ -2,10 +2,8 @@
 require "debug"
 require_relative "lib/word-search-puzzle"
 
-words = %w[negro azul gris verde naranja rosa rojo blanco amarillo]
+# words = %w[RED BLUE YELLOW GREEN BLACK WHITE PINK PURPLE ORANGE BROWN GREY]
+words = %w[RED BLUE YELLOW GREEN BLACK WHITE PINK PURPLE ORANGE BROWN GREY]
 
-builder = WordSearchPuzzle::Builder.new
-builder.words = words
-builder.size = 9
-builder.create_puzzle
-puts builder.puzzle.to_plain_text
+puzzle = WordSearchPuzzle::create(words: words, size: 10)
+puts puzzle.render

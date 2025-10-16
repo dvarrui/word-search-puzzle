@@ -2,12 +2,10 @@ class Cell
   EMPTY = "_"
 
   attr_reader :data, :count
-  attr_accessor :fake
 
   def initialize
     @count = 0
     @data = EMPTY
-    @fake = false
   end
 
   def empty?

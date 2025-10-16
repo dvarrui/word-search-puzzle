@@ -1,4 +1,5 @@
 require_relative "cell"
+require "colorize"
 
 class Grid
   def self.directions
@@ -58,8 +59,23 @@ class Grid
     @matriz.each { |row| puts row.map { " "+it.data.to_s }.join }
   end
 
-  def to_plain_text
-    lines = @matriz.map { |row| row.map { " "+it.data.to_s }.join }
+  def render(padding: true, color: false, alphabet: :default)
+    alphabet = ('A'..'Z').to_a if alphabet == :default
+
+    lines = @matriz.map do |row|
+      row.map do |cell|
+        data = cell.data.to_s
+        data = alphabet.shuffle.first if padding && cell.count.zero?
+
+        if color && cell.count.zero?
+          data = data.colorize(:gray) 
+        elsif color
+          data = data.colorize(:ligth_white)
+        end
+
+        " " + data
+      end.join
+    end
     lines.join("\n")
   end
 end
