@@ -17,7 +17,7 @@ class Grid
 
   Coord = Data.define(:row, :col, :data)
 
-  def initialize(size)
+  def initialize(size, locks=[])
     @size = size
     @matrix = []
     (0...size).each do |row|
@@ -25,6 +25,7 @@ class Grid
       (0...size).each { |col| data << Cell.new }
       @matrix[row] = data
     end
+    locks.each { |x,y| @matrix[x][y].lock! }
   end
 
   def cell(row, col)

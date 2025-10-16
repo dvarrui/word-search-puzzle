@@ -8,8 +8,7 @@ class Strategy
     # Sort words from longest to smallest
     @words = words.sort_by { it.length }.reverse
     @size = size
-    @initial_grid = Grid.new(@size)
-    locks.each { |x,y| @initial_grid.cell(x,y).lock! }
+    @initial_grid = Grid.new(@size, locks)
     @grid = nil
   end
 
