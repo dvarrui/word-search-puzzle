@@ -10,6 +10,14 @@ class Cell
     @data == :empty
   end
 
+  def locked?
+    @data == :locked
+  end
+
+  def lock!
+    @data = :locked
+  end
+
   def in_use?
     @count > 0
   end

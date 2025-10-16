@@ -1,4 +1,4 @@
-require_relative "cell/cell"
+require_relative "cell"
 require "colorize"
 
 class Grid
@@ -25,6 +25,10 @@ class Grid
       (0...size).each { |col| data << Cell.new }
       @matrix[row] = data
     end
+  end
+
+  def cell(row, col)
+    @matrix[row][col]
   end
 
   def find_sequence(word, first_row, first_col, direction)
@@ -60,19 +64,25 @@ class Grid
     padding = ('A'..'Z').to_a if padding == :default
 
     lines = @matrix.map do |row|
-      row.map do |cell|
-        data = cell.data.to_s
-        data = padding.shuffle.first if cell.count.zero?
-
-        if color && cell.count.zero?
-          data = data.colorize(:gray) 
-        elsif color
-          data = data.colorize(:ligth_white)
-        end
-
-        " " + data
-      end.join
+      row.map { render_cell(it, color, padding) }.join
     end
     lines.join("\n")
   end
+
+  private
+
+  def render_cell(cell, color, padding)
+    return '  ' if cell.locked?
+    data = cell.data.to_s
+    data = padding.shuffle.first if cell.count.zero?
+
+    if color && cell.count.zero?
+      data = data.colorize(:gray) 
+    elsif color
+      data = data.colorize(:ligth_white)
+    end
+
+    " " + data
+  end
+
 end

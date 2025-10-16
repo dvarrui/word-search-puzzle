@@ -4,10 +4,12 @@ require_relative "grid"
 class Strategy
   attr_reader :grid
 
-  def initialize(words, size)
+  def initialize(words, size, locks)
     # Sort words from longest to smallest
     @words = words.sort_by { it.length }.reverse
     @size = size
+    @initial_grid = Grid.new(@size)
+    locks.each { |x,y| @initial_grid.cell(x,y).lock! }
     @grid = nil
   end
 
@@ -16,8 +18,7 @@ class Strategy
   end
 
   def calculate
-    initial_grid = Grid.new(@size)
-    @grid = find_solution(@words.clone, initial_grid.clone)
+    @grid = find_solution(@words.clone, @initial_grid.clone)
   end
 
   private
