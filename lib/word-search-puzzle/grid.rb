@@ -19,11 +19,11 @@ class Grid
 
   def initialize(size)
     @size = size
-    @matriz = []
+    @matrix = []
     (0...size).each do |row|
       data = []
       (0...size).each { |col| data << Cell.new }
-      @matriz[row] = data
+      @matrix[row] = data
     end
   end
 
@@ -37,7 +37,7 @@ class Grid
         return []
       end
 
-      cell = @matriz[row][col]
+      cell = @matrix[row][col]
       if cell.empty? || cell.data == letter
         coords << Coord.new(row: row, col: col, data: letter)
         row += step[:row]
@@ -50,22 +50,22 @@ class Grid
   end
 
   def set_sequence(coords)
-    coords.each { @matriz[it.row][it.col].push(it.data) }
+    coords.each { @matrix[it.row][it.col].push(it.data) }
   end
 
   def unset_sequence(coords)
-    coords.each { @matriz[it.row][it.col].pop }
+    coords.each { @matrix[it.row][it.col].pop }
   end
 
   def show
-    @matriz.each { |row| puts row.map { " "+it.data.to_s }.join }
+    @matrix.each { |row| puts row.map { " "+it.data.to_s }.join }
   end
 
   def render(color: false, padding: :default)
     padding = [ '_' ] unless padding
     padding = ('A'..'Z').to_a if padding == :default
 
-    lines = @matriz.map do |row|
+    lines = @matrix.map do |row|
       row.map do |cell|
         data = cell.data.to_s
         data = padding.shuffle.first if cell.count.zero?
