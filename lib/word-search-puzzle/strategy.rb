@@ -52,8 +52,8 @@ class Strategy
 
   def get_available_locations(word, grid)
     locations = []
-    (0..@size).each do |row|
-      (0..@size).each do |col|
+    (0...@size).each do |row|
+      (0...@size).each do |col|
         Grid.directions.keys.each do |direction|
           location = grid.find_sequence(word, row, col, direction)
           locations << location unless location.empty?

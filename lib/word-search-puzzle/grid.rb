@@ -20,9 +20,9 @@ class Grid
   def initialize(size)
     @size = size
     @matriz = []
-    (0..size).each do |row|
+    (0...size).each do |row|
       data = []
-      (0..size).each { |col| data << Cell.new }
+      (0...size).each { |col| data << Cell.new }
       @matriz[row] = data
     end
   end
@@ -33,7 +33,9 @@ class Grid
     col = first_col
     coords = []
     word.chars.each do |letter|
-      return [] if (col >= @size || row >= @size || col < 0 || row < 0)
+      if (row >= @size || col >= @size || row < 0 || col < 0)
+        return []
+      end
 
       cell = @matriz[row][col]
       if cell.empty? || cell.data == letter
@@ -59,13 +61,14 @@ class Grid
     @matriz.each { |row| puts row.map { " "+it.data.to_s }.join }
   end
 
-  def render(padding: true, color: false, alphabet: :default)
-    alphabet = ('A'..'Z').to_a if alphabet == :default
+  def render(color: false, padding: :default)
+    padding = [ '_' ] unless padding
+    padding = ('A'..'Z').to_a if padding == :default
 
     lines = @matriz.map do |row|
       row.map do |cell|
         data = cell.data.to_s
-        data = alphabet.shuffle.first if padding && cell.count.zero?
+        data = padding.shuffle.first if cell.count.zero?
 
         if color && cell.count.zero?
           data = data.colorize(:gray) 
