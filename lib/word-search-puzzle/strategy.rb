@@ -2,21 +2,23 @@
 require_relative "grid"
 
 class Strategy
-  attr_reader :grid
-
   def initialize(words, grid)
     # Sort words from longest to smallest
     @words = words.sort_by { it.length }.reverse
     @initial_grid = grid
-    @grid = nil
+    @final_grid = nil
   end
 
   def solution?
-    !@grid.nil?
+    !@final_grid.nil?
+  end
+
+  def grid
+    @final_grid
   end
 
   def calculate
-    @grid = find_solution(@words.clone, @initial_grid.clone)
+    @final_grid = find_solution(@words.clone, @initial_grid.clone)
   end
 
   private
