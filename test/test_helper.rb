@@ -6,5 +6,5 @@ require "test-unit"
 
 require "word-search-puzzle"
 require "word-search-puzzle/version"
-require "word-search-puzzle/cell"
+require "word-search-puzzle/cell/cell"
 require "word-search-puzzle/grid"

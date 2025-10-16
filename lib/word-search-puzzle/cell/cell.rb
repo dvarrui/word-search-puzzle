@@ -1,15 +1,17 @@
 class Cell
-  EMPTY = ""
-
   attr_reader :data, :count
 
   def initialize
     @count = 0
-    @data = EMPTY
+    @data = :empty
   end
 
   def empty?
-    @data == EMPTY
+    @data == :empty
+  end
+
+  def in_use?
+    @count > 0
   end
 
   def push(data)
@@ -22,10 +24,11 @@ class Cell
   end
 
   def pop
-    raise "Cell.pop: No data!" if @count.zero?
+    raise "Cell.pop: No data!" unless in_use?
+
     @count -= 1
     current_data = @data
-    @data = EMPTY if @count.zero?
+    @data = :empty if @count.zero?
     current_data
   end
 end
