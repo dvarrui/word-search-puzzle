@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "colorize", "~> 1.1.0"
+  spec.add_dependency "thor", "~> 1.4.0"
 end

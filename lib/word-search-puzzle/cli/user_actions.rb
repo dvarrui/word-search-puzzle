@@ -1,8 +1,7 @@
-require_relative "word-search-puzzle/grid"
-require_relative "word-search-puzzle/strategy"
+require_relative '../../word-search-puzzle'
 
-module WordSearchPuzzle
-  def self.create_from_cli(options)
+module UserActions
+  def self.create(options)
     words = options['words'].split(',')
     size = options['size'] ? options['size'].to_i : 10
     color = options['color'] || false
@@ -14,12 +13,5 @@ module WordSearchPuzzle
       error "Unable to create puzzle!"
     end
   end
-
-  def self.create(words: words, size: size, locks: [])
-    grid = Grid.new(size, locks)
-    strategy = Strategy.new(words, grid)
-    strategy.calculate
-    strategy.grid
-  end
 end
-
+    
