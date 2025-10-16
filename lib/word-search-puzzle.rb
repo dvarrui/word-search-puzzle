@@ -2,19 +2,6 @@ require_relative "word-search-puzzle/grid"
 require_relative "word-search-puzzle/strategy"
 
 module WordSearchPuzzle
-  def self.create_from_cli(options)
-    words = options['words'].split(',')
-    size = options['size'] ? options['size'].to_i : 10
-    color = options['color'] || false
-    padding = options['padding'] ? options['padding'].split(',') : ('A'..'Z').to_a
-    puzzle = WordSearchPuzzle.create(words: words, size: size)
-    if puzzle
-      puts puzzle.render(color: color, padding: padding)
-    else
-      error "Unable to create puzzle!"
-    end
-  end
-
   def self.create(words: words, size: size, locks: [])
     grid = Grid.new(size, locks)
     strategy = Strategy.new(words, grid)

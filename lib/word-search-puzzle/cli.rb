@@ -19,7 +19,7 @@ class CLI < Thor
 
   map ["c", "-c", "--create"] => "create"
   option :size
-  option :words
+  option :words, required: true
   option :color, type: :boolean
   option :padding
   desc "create [--words=WORDS][--size=SIZE][--color]", "Create puzzle"
@@ -35,7 +35,7 @@ class CLI < Thor
 
   LONGDESC
   def create
-    UserActions.create(options)
+    UserActions.new.create(options)
   end
 
   def respond_to_missing?(_method_name)
