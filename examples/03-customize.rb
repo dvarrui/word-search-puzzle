@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative "../lib/word-search-puzzle"
 
-words = %w[RUBY LANGUAJE]
+words = %w[RUBY LOVE PROGRAM]
 
 #      9x9 Grid example
 # 
