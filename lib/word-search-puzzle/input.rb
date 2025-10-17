@@ -45,5 +45,17 @@ module WordSearchPuzzle
     def self.read_size(size)
       return (size ? size.to_i : 10)
     end
+
+    def self.validations(words, size, gaps)
+      msg = []
+      words.each do |word|
+        msg << "The word <#{word}> does not fit in the grid." if word.length > size
+      end
+      total_words_size = words.sum { it.length }
+      if total_words_size > (size*size - gaps.length)
+        msg << "The grid is not large enough to contain all the words."
+      end
+      msg
+    end
   end
 end

@@ -9,7 +9,7 @@ module WordSearchPuzzle
         gaps: options['gaps'])
 
       if puzzle.nil?
-        STDERR.puts "WARN: Unable to create puzzle!"
+        STDERR.puts "Unable to create puzzle!"
         exit 1
       end
 
