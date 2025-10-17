@@ -22,6 +22,13 @@
 
 ## Color
 
+The `color` option, highlights the list of words within the puzzle, so we can easily identify their location.
+
+```
+$ word-search-puzzle create --words=DEATH,STAR --color
+```
+![](images/puzzle-04.png)
+
 ## Padding
 
 In the puzzle creation process, we first place the word list inside the grid and then fill in the blanks with random letters until the grid is completely filled.
@@ -48,9 +55,9 @@ $ word-search-puzzle create --words=DEATH,STAR --padding='+,*,x'
 
 ## Gaps
 
-Typically, the grid in word search puzzles is a square or a rectangle. However, we've gone a step further and offer the ability to customize the grid shape.
+The grid is a group of cell into square or a rectangle shape. However, this program offers us to customize the grid shape.
 
-To do this, we start with a square grid from which we gradually remove the cells defined by `gaps` option.
+To do this, first we start with a square grid and gradually remove the cells defined by `gaps` option to customize the shape.
 
 **Example**: Using `gaps` to customize grid shape.
 
