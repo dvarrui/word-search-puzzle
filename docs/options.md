@@ -29,7 +29,7 @@ The `color` option, highlights the list of words within the puzzle, so we can ea
 ```
 $ word-search-puzzle create --words=DEATH,STAR --color
 ```
-![](images/puzzle-04.png)
+![](images/color-option.png)
 
 ## Padding
 
