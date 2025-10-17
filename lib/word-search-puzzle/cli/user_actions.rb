@@ -3,6 +3,7 @@ require_relative '../../word-search-puzzle'
 module WordSearchPuzzle
   class UserActions
     def create(options)
+      # Reading input options
       words = read_words(options['words'])
       size = options['size'] ? options['size'].to_i : 10
       color = options['color'] || false
@@ -10,11 +11,11 @@ module WordSearchPuzzle
       gaps = read_gaps(options['gaps'])
   
       puzzle = WordSearchPuzzle.create(words: words, size: size, gaps: gaps)
-      if puzzle
-        puts puzzle.render(color: color, padding: padding)
-      else
+      if puzzle.nil?
         STDERR.puts "Unable to create puzzle!"
+        exit 1
       end
+      puts puzzle.render(color: color, padding: padding)
     end
   
     def read_words(words)
