@@ -23,7 +23,7 @@ class CLI < Thor
   option :color, type: :boolean
   option :padding
   option :locks
-  desc "create [--words=WORDS][--size=SIZE][--color]", "Create puzzle"
+  desc "create [--size=SIZE][--color]", "Create puzzle"
   long_desc <<-LONGDESC
 
   - [--words=LIST], comma-separated list of words or file name with the words

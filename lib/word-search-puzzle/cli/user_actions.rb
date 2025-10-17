@@ -12,7 +12,7 @@ class UserActions
     if puzzle
       puts puzzle.render(color: color, padding: padding)
     else
-      error "Unable to create puzzle!"
+      STDERR.puts "Unable to create puzzle!"
     end
   end
 

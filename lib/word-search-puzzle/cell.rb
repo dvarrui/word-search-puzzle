@@ -10,11 +10,11 @@ class Cell
     @data == :empty
   end
 
-  def locked?
+  def gap?
     @data == :locked
   end
 
-  def lock!
+  def gap!
     @data = :locked
   end
 
