@@ -10,7 +10,7 @@ Install the gem by executing:
 
 ## Usage
 
-Run the p`word-search-puzzle` command from the command line.
+Execute `word-search-puzzle` from the command line.
 
 **Example**: create puzzle with default options.
 

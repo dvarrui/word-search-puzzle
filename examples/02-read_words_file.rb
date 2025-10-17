@@ -1,15 +1,15 @@
 #!/usr/bin/env ruby
 
 require_relative "../lib/word-search-puzzle"
-require "debug"
 
-# Create puzzle (size 10x10)
+# Create puzzle (size 10x10) reading words list from text file
 filename = 'starwars.txt'
 puzzle = WordSearchPuzzle.create(words: filename)
 
-# Check solution
+# Check if exits solution
 if puzzle.nil?
-  puts "ERROR: File not found! (#{filename})"
+  puts "I can't create the puzzle!"
+  puts "Revise fiilepath! (#{filename})"
   exit 1
 end
 

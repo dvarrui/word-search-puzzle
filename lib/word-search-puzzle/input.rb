@@ -51,6 +51,9 @@ module WordSearchPuzzle
       words.each do |word|
         msg << "The word <#{word}> does not fit in the grid." if word.length > size
       end
+      if words.size == 1 && msg.size == 1
+        msg << "If <#{words.first}> is a filepath then it was not found."
+      end
       total_words_size = words.sum { it.length }
       if total_words_size > (size*size - gaps.length)
         msg << "The grid is not large enough to contain all the words."
