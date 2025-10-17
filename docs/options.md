@@ -7,14 +7,16 @@
 * Show help: `word-search-puzzle help`
 * Show **create** action help: `word-search-puzzle help create`
 
-## Options
+# Building options
 
-**Building options**: to create different puzzles.
+> Used to create different puzzles.
 
 * `--words`, Comma separated list of word or file name with de words.
 * `--size`, Grid size. Default value 10.
 
-**Rendering options**: To display the puzzle in different ways.
+# Rendering options
+
+> Used to display the puzzle in different ways.
 
 * `--color`, Indicates whether to display the output with color. Default value false.
 * `--padding=LIST`, comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
