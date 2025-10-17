@@ -16,7 +16,7 @@ words = %w[RUBY LOVE PROGRAM]
 # 7 | . . . . @ . . . .
 # 8 | . . . . . . . . .
 
-locks = [ 
+gaps = [ 
   [0,0] ,[0,3], [0,4], [0,5], [0,8],
   [1,4],
   [4,0], [4,8],
@@ -29,6 +29,6 @@ locks = [
 puzzle = WordSearchPuzzle.create(
   words: words, 
   size: 9,
-  locks: locks)
+  gaps: gaps)
 
 puts puzzle.render(color: true, padding: ['@'])

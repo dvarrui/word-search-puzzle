@@ -18,11 +18,11 @@ class CLI < Thor
   end
 
   map ["c", "-c", "--create"] => "create"
-  option :size
   option :words, required: true
+  option :size
   option :color, type: :boolean
   option :padding
-  option :locks
+  option :gaps
   desc "create [--size=SIZE][--color]", "Create puzzle"
   long_desc <<-LONGDESC
 
@@ -34,11 +34,11 @@ class CLI < Thor
 
   - [--padding=LIST], comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
 
-  - [--locks=FILEPATH], Filename with list of the coordinates of the locked cells 
-
+  - [--gaps=FILEPATH], Filename with list of gaps coordinates
+  
   LONGDESC
   def create
-    UserActions.new.create(options)
+    WordSearchPuzzle::UserActions.new.create(options)
   end
 
   def respond_to_missing?(_method_name)
