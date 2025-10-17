@@ -10,7 +10,7 @@ Install the gem by executing:
 
 ## Usage
 
-> Using `word-search-puzzle` command line tool.
+> Use `word-search-puzzle` command line tool.
 
 Create puzzle with default options:
 ```
@@ -27,18 +27,20 @@ $ word-search-puzzle create --words=JEDI,SITH,STARWARS
  X I D E J N J R M P
 ```
 
+> Each execution creates a different puzzle.
+
 Create a puzzle showing the solution: 
 ```
 $ word-search-puzzle create --words=VADER,OBIWAN,LUKE --padding='.'
+ . . . V . . . . . .
+ . . . . A . . . . .
+ . . . . . D . . . .
+ . . . . . . E . . .
+ . . . . . . . R . .
  . . . . . . . . . .
- . L . . . . . . . .
- . U N A W I B O . .
- . K . . . . . . . .
- . E . . . . . . . .
+ . . . . O B I W A N
  . . . . . . . . . .
- . . . . . . . . . .
- . . V A D E R . . .
- . . . . . . . . . .
+ . . E K U L . . . .
  . . . . . . . . . .
 ```
 
@@ -56,6 +58,9 @@ $ word-search-puzzle create --words=examples/starwars.txt
  W L Y S I T H A R V
  C Z 2 D 2 R L U K E
  ```
+
+> **WARNING:**
+> Depending on the number and size of the words, and the size of the grid, sometimes it will not be possible to find a solution.
 
 ## Documentation
 
