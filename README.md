@@ -49,7 +49,7 @@ $ word-search-puzzle create --words=examples/starwars.txt
 
 * [Command line options and examples](docs/options.md)
 * [Examples using the Ruby library](examples/)
-* [Developement](docs/development.md)
+* [Development](docs/development.md)
 
 ## Contributing
 

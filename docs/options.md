@@ -20,7 +20,31 @@
 * `--padding=LIST`, comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
 * `--gaps=FILEPATH`, Filename with list of gaps coordinates. List of `row,col` integers.
 
+## Color
+
 ## Padding
+
+In the puzzle creation process, we first place the word list inside the grid and then fill in the blanks with random letters until the grid is completely filled.
+
+During this step, the letters A through Z will be used by default as random values.
+
+However, in some cases, the words in our puzzle may use other characters (for example, Japanese characters), and we may want to define that the random fill values ​​should be chosen from a list other than the A-Z alphabet.
+
+We will use `padding` option to change these random padding values.
+
+```
+$ word-search-puzzle create --words=DEATH,STAR --padding='+,*,x' 
+ * x * + x x * * x x
+ * x x + x * * * * x
+ + x * * + x * * + +
+ + + x x + x + * x +
+ * * * + * + + + + x
+ + * x + * + H x * x
+ + * + + x T + + x *
+ + x + x A * + + + +
+ x x x E * + R A T S
+ x x D * x + * * x x
+```
 
 ## Gaps
 
