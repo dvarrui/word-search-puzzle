@@ -15,17 +15,8 @@ Install the gem by executing:
 Create puzzle with default options:
 ```
 $ word-search-puzzle create --words=JEDI,SITH,STARWARS
- L N M I J W U L H D
- X S A J I E N I V Y
- Z R P N R E B R N F
- H A Y N B W Q R X D
- Z W E G O R P F V A
- F R D X B Y T B I O
- O A A D X R G I O D
- I T U H T I S W U A
- T S Z N N H X Q O T
- X I D E J N J R M P
 ```
+![](docs/images/puzzle-01.png)
 
 > Each execution creates a different puzzle.
 
@@ -47,17 +38,8 @@ $ word-search-puzzle create --words=VADER,OBIWAN,LUKE --padding='.'
 Create puzzle reading words from text file:
 ```
 $ word-search-puzzle create --words=examples/starwars.txt                   
- Z P D O D C 3 P O O
- E M P E R A D O R O
- S R A W R A T S O B
- W O D H E O G C H I
- R E V A D E R M H W
- M B S I S F X Y U A
- J L I E I R R O G N
- K Z G L S Q N D B R
- W L Y S I T H A R V
- C Z 2 D 2 R L U K E
- ```
+```
+![](docs/images/puzzle-03.png)
 
 > **WARNING:**
 > Depending on the number and size of the words, and the size of the grid, sometimes it will not be possible to find a solution.
