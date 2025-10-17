@@ -3,7 +3,7 @@ module WordSearchPuzzle
     def self.read_words(words)
       if words.is_a? Array
         if words.empty?
-          STDERR.puts "[ERROR] Input: param empty! (words)" 
+          STDERR.puts "Input: param empty! (words)" 
           exit 1
         end
         return words
@@ -12,14 +12,14 @@ module WordSearchPuzzle
         lines.map! { it.strip }
         lines.delete("") 
         if lines.empty?
-          STDERR.puts "[ERROR] Input: filename empty! (#{words})!" 
+          STDERR.puts "Input: filename empty! (#{words})!" 
           exit 1
         end
         return lines
       end
 
       if words.nil? || words.empty?
-        STDERR.puts "[ERROR] Input: param empty! (words)" 
+        STDERR.puts "Input: param empty! (words)" 
         exit 1
       end
 
