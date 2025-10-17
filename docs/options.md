@@ -7,20 +7,24 @@
 * Show help: `word-search-puzzle help`
 * Show **create** action help: `word-search-puzzle help create`
 
-## Parameters
+## Options
 
-Building parameters:
+**Building options**: to create different puzzles.
 
 * `--words`, Comma separated list of word or file name with de words.
 * `--size`, Grid size. Default value 10.
 
-Rendering parameters:
+**Rendering options**: To display the puzzle in different ways.
 
 * `--color`, Indicates whether to display the output with color. Default value false.
 * `--padding=LIST`, comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
 * `--gaps=FILEPATH`, Filename with list of gaps coordinates.
 
-## Example: Create puzzle using customized grid shape
+## Padding
+
+## Gaps
+
+Using `gaps` to customize grid shape.
 
 ```
 $ word-search-puzzle create --words=DEATH,STAR --padding='.' --gaps=examples/ball-gaps.txt
