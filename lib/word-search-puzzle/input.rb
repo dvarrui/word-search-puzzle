@@ -40,6 +40,10 @@ module WordSearchPuzzle
         return data
       end
       []
-    end    
+    end
+
+    def self.read_size(size)
+      return (size ? size.to_i : 10)
+    end
   end
 end
