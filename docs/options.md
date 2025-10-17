@@ -18,7 +18,7 @@
 
 * `--color`, Indicates whether to display the output with color. Default value false.
 * `--padding=LIST`, comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
-* `--gaps=FILEPATH`, Filename with list of gaps coordinates.
+* `--gaps=FILEPATH`, Filename with list of gaps coordinates. List of `row,col` integers.
 
 ## Padding
 
