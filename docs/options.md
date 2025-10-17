@@ -28,9 +28,9 @@ In the puzzle creation process, we first place the word list inside the grid and
 
 During this step, the letters A through Z will be used by default as random values.
 
-However, in some cases, the words in our puzzle may use other characters (for example, Japanese characters), and we may want to define that the random fill values ​​should be chosen from a list other than the A-Z alphabet.
+However, in some cases, the words in our puzzle may use other characters set (for example, Japanese characters), so we use `padding` option set custom random character fill list
 
-We will use `padding` option to change these random padding values.
+**Example**: Using `padding` option to custom random padding values.
 
 ```
 $ word-search-puzzle create --words=DEATH,STAR --padding='+,*,x' 
