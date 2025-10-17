@@ -75,3 +75,14 @@ $ word-search-puzzle create --words=DEATH,STAR --gaps=examples/ball-gaps.csv
      H H J N E X    
        U J D D   
 ```
+
+**ball-gaps.csv**: csv file where each line represents the row and column coordinates of the cells that will not be used in the grid.
+
+```bash
+$ cat ball-gaps.csv
+0,0
+0,1
+0,2
+0,3
+...
+```
