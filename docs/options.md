@@ -48,24 +48,14 @@ $ word-search-puzzle create --words=DEATH,STAR --padding='+,*,x'
 
 ## Gaps
 
-Using `gaps` to customize grid shape.
+Typically, the grid in word search puzzles is a square or a rectangle. However, we've gone a step further and offer the ability to customize the grid shape.
+
+To do this, we start with a square grid from which we gradually remove the cells defined by `gaps` option.
+
+**Example**: Using `gaps` to customize grid shape.
 
 ```
-$ word-search-puzzle create --words=DEATH,STAR --padding='.' --gaps=examples/ball-gaps.txt
-                    
-       S . . .      
-     . . T . . .    
-   . . . . A . . .  
-   . . . . . R . D  
-   . . . . . . E .  
-   . . . . . A . .  
-     . . . T . .    
-       . H . . 
-
-```
-
-```
-$ word-search-puzzle create --words=DEATH,STAR --gaps=examples/ball-gaps.txt 
+$ word-search-puzzle create --words=DEATH,STAR --gaps=examples/ball-gaps.csv
                     
        N L P T      
      O R P S P O    
