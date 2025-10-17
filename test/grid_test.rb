@@ -4,7 +4,7 @@ require "test_helper"
 
 class GridTest < Test::Unit::TestCase
   test "Find sequence for 1 word east" do
-    grid = Grid.new(10)
+    grid = WordSearchPuzzle::Grid.new(10)
     sequence = grid.find_sequence("black", 1, 2, :e)
     assert_equal(5, sequence.length)
 
@@ -25,14 +25,14 @@ class GridTest < Test::Unit::TestCase
   end
 
   test "Fail finding sequence for 1 word east" do
-    grid = Grid.new(3)
+    grid = WordSearchPuzzle::Grid.new(3)
     sequence = grid.find_sequence("black", 1, 2, :e)
     assert_equal(0, sequence.length)
     assert_equal([], sequence)
   end
 
   test "Get sequence for 1 word south" do
-    grid = Grid.new(10)
+    grid = WordSearchPuzzle::Grid.new(10)
     sequence = grid.find_sequence("black", 1, 2, :s)
     assert_equal(5, sequence.length)
 
@@ -53,7 +53,7 @@ class GridTest < Test::Unit::TestCase
   end
 
   test "Set sequence for 2 overlaped words east" do
-    grid = Grid.new(5)
+    grid = WordSearchPuzzle::Grid.new(5)
     sequence = grid.find_sequence("black", 0, 0, :e)
     assert_equal(5, sequence.length)
     grid.set_sequence(sequence)
@@ -67,7 +67,7 @@ class GridTest < Test::Unit::TestCase
   end
 
   test "Unset sequence with 2 overlaped words " do
-    grid = Grid.new(5)
+    grid = WordSearchPuzzle::Grid.new(5)
     sequence1 = grid.find_sequence("black", 0, 0, :e)
     grid.set_sequence(sequence1)
 

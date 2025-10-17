@@ -4,7 +4,7 @@ require "test_helper"
 
 class CellTest < Test::Unit::TestCase
   test "new" do
-    cell = Cell.new
+    cell = WordSearchPuzzle::Cell.new
     assert_equal(true, cell.empty?)
     assert_equal(0, cell.count)
     assert_equal(false, cell.in_use?)
@@ -15,13 +15,13 @@ class CellTest < Test::Unit::TestCase
   end
 
   test "new and pop" do
-    cell = Cell.new
+    cell = WordSearchPuzzle::Cell.new
     assert_raise { cell.pop }
     assert_raise_message("Cell.pop: No data!") { cell.pop }
   end
 
   test "1 push" do
-    cell = Cell.new
+    cell = WordSearchPuzzle::Cell.new
     assert_equal(false, cell.in_use?)
 
     cell.push("A")
@@ -32,7 +32,7 @@ class CellTest < Test::Unit::TestCase
   end
 
   test "push A and push B" do
-    cell = Cell.new
+    cell = WordSearchPuzzle::Cell.new
     assert_equal(false, cell.in_use?)
 
     cell.push("A")
@@ -43,7 +43,7 @@ class CellTest < Test::Unit::TestCase
   end
 
   test "1 push and 1 pop" do
-    cell = Cell.new
+    cell = WordSearchPuzzle::Cell.new
     cell.push("A")
 
     assert_equal("A", cell.data)
@@ -57,7 +57,7 @@ class CellTest < Test::Unit::TestCase
   end
 
   test "gap" do
-    cell = Cell.new
+    cell = WordSearchPuzzle::Cell.new
     assert_equal(false, cell.gap?)
     cell.gap!
     assert_equal(true, cell.gap?)

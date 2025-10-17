@@ -3,11 +3,9 @@ require_relative '../../word-search-puzzle'
 module WordSearchPuzzle
   class UserActions
     def create(options)
-      size = options['size'] ? options['size'].to_i : 10
-  
       puzzle = WordSearchPuzzle.create(
         words: options['words'], 
-        size: size, 
+        size: options['size'] ? options['size'].to_i : 10, 
         gaps: options['gaps'])
 
         if puzzle.nil?
