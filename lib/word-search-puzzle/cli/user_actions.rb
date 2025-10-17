@@ -6,7 +6,7 @@ module WordSearchPuzzle
       size = options['size'] ? options['size'].to_i : 10
   
       puzzle = WordSearchPuzzle.create(
-        words: option['words'], 
+        words: options['words'], 
         size: size, 
         gaps: options['gaps'])
 

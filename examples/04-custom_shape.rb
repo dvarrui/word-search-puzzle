@@ -29,7 +29,7 @@ gaps = [
 ]
 
 # Define words list
-words = %w[RUBY LOVE PROGRAM]
+words = %w[DEATH STAR RETURN JEDI]
 
 # Create puzzle
 puzzle = WordSearchPuzzle.create(
