@@ -1,0 +1,4 @@
+class Cell
+    attr_reader data: Char
+    attr_reader count: Integer
+end
