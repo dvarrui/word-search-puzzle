@@ -27,17 +27,19 @@ $ word-search-puzzle create --words=JEDI,SITH,STARWARS
  X I D E J N J R M P
 ```
 
-Create resolved puzzle: 
+Create a puzzle showing the solution: 
 ```
-$ word-search-puzzle create --words=JEDI,SITH,STARWARS --size=8 --padding='.'
- . . . I . . . S
- . . . D . . . T
- . . . E . . . A
- . H . J . . . R
- . . T . . . . W
- . . . I . . . A
- . . . . S . . R
- . . . . . . . S
+$ word-search-puzzle create --words=VADER,OBIWAN,LUKE --padding='.'
+ . . . . . . . . . .
+ . L . . . . . . . .
+ . U N A W I B O . .
+ . K . . . . . . . .
+ . E . . . . . . . .
+ . . . . . . . . . .
+ . . . . . . . . . .
+ . . V A D E R . . .
+ . . . . . . . . . .
+ . . . . . . . . . .
 ```
 
 Create puzzle reading words from text file:
