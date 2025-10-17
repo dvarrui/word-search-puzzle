@@ -8,7 +8,7 @@ module WordSearchPuzzle
         size: options['size'] ? options['size'].to_i : 10, 
         gaps: options['gaps'])
 
-        if puzzle.nil?
+      if puzzle.nil?
         STDERR.puts "Unable to create puzzle!"
         exit 1
       end
