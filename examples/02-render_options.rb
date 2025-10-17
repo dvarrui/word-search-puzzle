@@ -7,4 +7,7 @@ puzzle = WordSearchPuzzle.create(
   words: words, 
   size: 10)
 
+# Show puzzle on screen:
+# - color: Using colors to highlight words
+# - padding: define the characters used to fill
 puts puzzle.render(color: true, padding: ['.'])

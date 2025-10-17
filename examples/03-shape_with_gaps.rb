@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require_relative "../lib/word-search-puzzle"
 
-words = %w[RUBY LOVE PROGRAM]
 
 #      9x9 Grid example
 # 
@@ -16,6 +15,9 @@ words = %w[RUBY LOVE PROGRAM]
 # 7 | . . . . @ . . . .
 # 8 | . . . . . . . . .
 
+# gaps:
+# - Define gaps within the grid
+# - Gaps are positions within the grid that cannot be used for the puzzle.
 gaps = [ 
   [0,0] ,[0,3], [0,4], [0,5], [0,8],
   [1,4],
@@ -26,9 +28,14 @@ gaps = [
   [8,0], [8,1], [8,2], [8,3], [8,4], [8,5], [8,6], [8,7], [8,8],
 ]
 
+# Define words list
+words = %w[RUBY LOVE PROGRAM]
+
+# Create puzzle
 puzzle = WordSearchPuzzle.create(
   words: words, 
   size: 9,
   gaps: gaps)
 
+# Render puzzle on screen
 puts puzzle.render(color: true, padding: ['@'])
