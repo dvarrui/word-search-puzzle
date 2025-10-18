@@ -3,7 +3,7 @@ require_relative "word-search-puzzle/input"
 require_relative "word-search-puzzle/strategy"
 
 module WordSearchPuzzle
-  def self.create(words: words, size: 10, gaps: [])
+  def self.create(words: [], size: 10, gaps: [])
     # Read inputs values
     words = WordSearchPuzzle::Input.read_words(words)
     size = WordSearchPuzzle::Input.read_size(size)
