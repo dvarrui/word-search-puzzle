@@ -4,12 +4,12 @@ require_relative "word-search-puzzle/strategy"
 
 module WordSearchPuzzle
   def self.create(words: [], size: 10, gaps: [])
-    # Read inputs values
+    # Read input values
     words = WordSearchPuzzle::Input.read_words(words)
     size = WordSearchPuzzle::Input.read_size(size)
     gaps = WordSearchPuzzle::Input.read_gaps(gaps)
 
-    # Validate inputs values
+    # Validate input values
     errors = WordSearchPuzzle::Input.validations(words, size, gaps)
     unless errors.empty?
       puts "Unable to create puzzle:"
