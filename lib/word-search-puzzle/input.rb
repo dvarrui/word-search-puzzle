@@ -3,47 +3,47 @@ module WordSearchPuzzle
     def self.read_words(words)
       if words.is_a? Array
         if words.empty?
-          STDERR.puts "Input: empty parameter! (words)" 
+          warn "Input: empty parameter! (words)"
           exit 1
         end
         return words
       elsif File.exist?(words)
         lines = File.readlines(words)
         lines.map! { it.strip }
-        lines.delete("") 
+        lines.delete("")
         if lines.empty?
-          STDERR.puts "Input: empty file! (#{words})!" 
+          warn "Input: empty file! (#{words})!"
           exit 1
         end
         return lines
       end
 
       if words.nil? || words.empty?
-        STDERR.puts "Input: empty parameter! (words)" 
+        warn "Input: empty parameter! (words)"
         exit 1
       end
 
-      words.split(',')
+      words.split(",")
     end
 
     def self.read_gaps(gaps)
       return gaps if gaps.is_a? Array
       return [] if gaps.nil?
-    
+
       if File.exist?(gaps)
         data = File.readlines(gaps)
-        data.map! do 
-          items = it.split(',')
-          [ items[0].to_i, items[1].to_i ]
+        data.map! do
+          items = it.split(",")
+          [items[0].to_i, items[1].to_i]
         end
-        data.delete("") 
+        data.delete("")
         return data
       end
       []
     end
 
     def self.read_size(size)
-      return (size ? size.to_i : 10)
+      (size ? size.to_i : 10)
     end
 
     def self.validations(words, size, gaps)
@@ -55,7 +55,7 @@ module WordSearchPuzzle
         msg << "If <#{words.first}> is a filepath then it was not found."
       end
       total_words_size = words.sum { it.length }
-      if total_words_size > (size*size - gaps.length)
+      if total_words_size > (size * size - gaps.length)
         msg << "The grid is not large enough to contain all the words."
       end
       msg

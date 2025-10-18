@@ -1,9 +1,8 @@
 #!/usr/bin/env ruby
 require_relative "../lib/word-search-puzzle"
 
-
 #      9x9 Grid example
-# 
+#
 #     0 1 2 3 4 5 6 7 8
 # 0 | . @ @ . . . @ @ .
 # 1 | @ @ @ @ . @ @ @ @
@@ -18,14 +17,14 @@ require_relative "../lib/word-search-puzzle"
 # gaps:
 # - Define gaps within the grid
 # - Gaps are positions within the grid that cannot be used for the puzzle.
-gaps = [ 
-  [0,0] ,[0,3], [0,4], [0,5], [0,8],
-  [1,4],
-  [4,0], [4,8],
-  [5,0], [5,1], [5,7], [5,8],
-  [6,0], [6,1], [6,2], [6,6], [6,7], [6,8],
-  [7,0], [7,1], [7,2], [7,3], [7,5], [7,6], [7,7], [7,8],
-  [8,0], [8,1], [8,2], [8,3], [8,4], [8,5], [8,6], [8,7], [8,8],
+gaps = [
+  [0, 0], [0, 3], [0, 4], [0, 5], [0, 8],
+  [1, 4],
+  [4, 0], [4, 8],
+  [5, 0], [5, 1], [5, 7], [5, 8],
+  [6, 0], [6, 1], [6, 2], [6, 6], [6, 7], [6, 8],
+  [7, 0], [7, 1], [7, 2], [7, 3], [7, 5], [7, 6], [7, 7], [7, 8],
+  [8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [8, 7], [8, 8]
 ]
 
 # Define words list
@@ -33,9 +32,10 @@ words = %w[DEATH STAR RETURN JEDI]
 
 # Create puzzle
 puzzle = WordSearchPuzzle.create(
-  words: words, 
+  words: words,
   size: 9,
-  gaps: gaps)
+  gaps: gaps
+)
 
 # Render puzzle on screen
-puts puzzle.render(color: true, padding: ['@'])
+puts puzzle.render(color: true, padding: ["@"])

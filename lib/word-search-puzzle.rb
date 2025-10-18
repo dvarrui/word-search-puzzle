@@ -13,7 +13,7 @@ module WordSearchPuzzle
     errors = WordSearchPuzzle::Input.validations(words, size, gaps)
     unless errors.empty?
       puts "Unable to create puzzle:"
-      errors.each_with_index { |message, index| puts "#{index + 1}. #{message}"}
+      errors.each_with_index { |message, index| puts "#{index + 1}. #{message}" }
       exit 1
     end
 

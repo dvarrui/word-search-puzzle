@@ -38,8 +38,8 @@ class CellTest < Test::Unit::TestCase
     cell.push("A")
     assert_equal("A", cell.data)
 
-    assert_raise { cell.push 'B' }
-    assert_raise_message('Cell.push: new data(B) is not equal to current data(A)!') { cell.push 'B' }
+    assert_raise { cell.push "B" }
+    assert_raise_message("Cell.push: new data(B) is not equal to current data(A)!") { cell.push "B" }
   end
 
   test "1 push and 1 pop" do
