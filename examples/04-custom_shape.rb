@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 require_relative "../lib/word-search-puzzle"
 
+# 1. First desing your own grid shape and create the gaps
+#
 #      9x9 Grid example
 #
 #     0 1 2 3 4 5 6 7 8
@@ -13,9 +15,9 @@ require_relative "../lib/word-search-puzzle"
 # 6 | . . . @ @ @ . . .
 # 7 | . . . . @ . . . .
 # 8 | . . . . . . . . .
-
+#
 # gaps:
-# - Define gaps within the grid
+# - Define gaps within the grid (row, col).
 # - Gaps are positions within the grid that cannot be used for the puzzle.
 gaps = [
   [0, 0], [0, 3], [0, 4], [0, 5], [0, 8],
@@ -27,15 +29,15 @@ gaps = [
   [8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [8, 7], [8, 8]
 ]
 
-# Define words list
+# 2. Define words list
 words = %w[DEATH STAR RETURN JEDI]
 
-# Create puzzle
+# 3. Create a puzzle with custom words, size and gaps
 puzzle = WordSearchPuzzle.create(
   words: words,
   size: 9,
   gaps: gaps
 )
 
-# Render puzzle on screen
+# 4. Render puzzle on screen
 puts puzzle.render(color: true, padding: ["@"])

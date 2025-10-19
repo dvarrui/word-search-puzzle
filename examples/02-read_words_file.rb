@@ -1,17 +1,18 @@
 #!/usr/bin/env ruby
+# Create your puzzle reading words from external txt file
 
 require_relative "../lib/word-search-puzzle"
 
-# Create puzzle (size 10x10) reading words list from text file
-filename = File.join(File.dirname(__FILE__), "starwars.txt")
-puzzle = WordSearchPuzzle.create(words: filename)
+# 1. Create puzzle (default size 10x10) reading words from text file
+FILEPATH = File.join(File.dirname(__FILE__), "starwars.txt")
+puzzle = WordSearchPuzzle.create(words: FILEPATH)
 
-# Check if exits solution
+# 2. Check if exits solution
 if puzzle.nil?
-  puts "I can't create the puzzle!"
-  puts "Revise fiilepath! (#{filename})"
+  puts "I'm sorry! Can't create the puzzle!"
+  puts "Revise filepath, please! (#{filename})"
   exit 1
 end
 
-# Show puzzle on screen
+# 3. Show puzzle on screen
 puts puzzle.render

@@ -1,19 +1,18 @@
 #!/usr/bin/env ruby
 require_relative "../lib/word-search-puzzle"
 
-# gaps:
-# - Define gaps within the grid
-# - Gaps are positions within the grid that cannot be used for the puzzle.
-filepath = "ball-gaps.csv"
+# 1. Read a CSV file with your gaps definition.
+#    Gaps positions within the grid that cannot be used for the puzzle.
+FILEPATH = File.join(File.dirname(__FILE__), "ball-gaps.csv")
 
-# Define words list
+# 2. Define words list
 words = %w[DEATH STAR RETURN JEDI]
 
-# Create puzzle (10x10)
+# 3. Create puzzle with custom words, default size (10x10), and custom gaps
 puzzle = WordSearchPuzzle.create(
   words: words,
-  gaps: filepath
+  gaps: FILEPATH
 )
 
-# Render puzzle on screen
+# 4. Render puzzle on screen
 puts puzzle.render(color: true, padding: ["@"])
