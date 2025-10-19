@@ -47,11 +47,9 @@ module WordSearchPuzzle
         else
           data = []
           lines.each_with_index do |line, row|
-            coords = []
             line.chars.each_with_index do |char, col|
-              coords << [row, col] if char == "."
+              data << [row, col] if char == "."
             end
-            data << coords
           end
         end
         return data

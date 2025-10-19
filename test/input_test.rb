@@ -55,16 +55,6 @@ class InputTest < Test::Unit::TestCase
     filename = File.join(__dir__, "ball-shape.txt")
     gaps = WordSearchPuzzle::Input.read_gaps(filename)
     assert(gaps.is_a?(Array))
-    assert_equal(10, gaps.length)
-    assert_equal(10, gaps[0].length)
-    assert_equal(6, gaps[1].length)
-    assert_equal(4, gaps[2].length)
-    assert_equal(2, gaps[3].length)
-    assert_equal(2, gaps[4].length)
-    assert_equal(2, gaps[5].length)
-    assert_equal(2, gaps[6].length)
-    assert_equal(4, gaps[7].length)
-    assert_equal(6, gaps[8].length)
-    assert_equal(10, gaps[9].length)
+    assert_equal(48, gaps.length)
   end
 end
