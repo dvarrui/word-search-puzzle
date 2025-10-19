@@ -25,7 +25,7 @@ module WordSearchPuzzle
         exit 1
       end
 
-      words.split(",")
+      words.split(",").map { it.strip }
     end
 
     def self.read_gaps(gaps)
