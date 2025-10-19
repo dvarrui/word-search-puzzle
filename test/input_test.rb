@@ -10,18 +10,61 @@ class InputTest < Test::Unit::TestCase
   end
 
   test "Read words: string with spaces between words list" do
-    data = "JEDI, SITH , STARWARS"
+    data = "JEDI, SITH , STARWARS "
     words = WordSearchPuzzle::Input.read_words(data)
     assert_equal(["JEDI", "SITH", "STARWARS"], words)
   end
 
-  test "Read words: read from text file" do
+  test "Read words: from text file" do
     filename = File.join(__dir__, "starwars.txt")
     words = WordSearchPuzzle::Input.read_words(filename)
     assert(words.is_a?(Array))
     assert_equal(10, words.length)
   end
 
-  # size = WordSearchPuzzle::Input.read_size(size)
-  # gaps = WordSearchPuzzle::Input.read_gaps(gaps)
+  test "Read size: string" do
+    size = WordSearchPuzzle::Input.read_size("8")
+    assert_equal(8, size)
+  end
+
+  test "Read size: empty string" do
+    size = WordSearchPuzzle::Input.read_size("")
+    assert_equal(0, size)
+  end
+
+  test "Read size: nil" do
+    size = WordSearchPuzzle::Input.read_size(nil)
+    assert_equal(10, size)
+  end
+
+  test "Read gaps: from csv file" do
+    filename = File.join(__dir__, "ball-gaps.csv")
+    gaps = WordSearchPuzzle::Input.read_gaps(filename)
+    assert(gaps.is_a?(Array))
+    assert_equal(48, gaps.length)
+  end
+
+  test "Read gaps: unknown file" do
+    data = "unkown.file"
+    gaps = WordSearchPuzzle::Input.read_gaps(data)
+    assert(gaps.is_a?(Array))
+    assert_equal(0, gaps.length)
+  end
+
+  test "Read gaps: from shape file" do
+    filename = File.join(__dir__, "ball-shape.txt")
+    gaps = WordSearchPuzzle::Input.read_gaps(filename)
+    assert(gaps.is_a?(Array))
+    assert_equal(10, gaps.length)
+    assert_equal(10, gaps[0].length)
+    assert_equal(6, gaps[1].length)
+    assert_equal(4, gaps[2].length)
+    assert_equal(2, gaps[3].length)
+    assert_equal(2, gaps[4].length)
+    assert_equal(2, gaps[5].length)
+    assert_equal(2, gaps[6].length)
+    assert_equal(4, gaps[7].length)
+    assert_equal(6, gaps[8].length)
+    assert_equal(10, gaps[9].length)
+  end
 end

@@ -28,24 +28,36 @@ module WordSearchPuzzle
       words.split(",").map { it.strip }
     end
 
+    def self.read_size(size)
+      (size ? size.to_i : DEFAULT_GRID_SIZE)
+    end
+
     def self.read_gaps(gaps)
       return gaps if gaps.is_a? Array
       return [] if gaps.nil?
 
       if File.exist?(gaps)
-        data = File.readlines(gaps)
-        data.map! do
-          items = it.split(",")
-          [items[0].to_i, items[1].to_i]
+        lines = File.readlines(gaps)
+        lines.delete("")
+        if gaps.end_with?(".csv")
+          data = lines.map do
+            items = it.split(",")
+            [items[0].to_i, items[1].to_i]
+          end
+        else
+          data = []
+          lines.each_with_index do |line, row|
+            coords = []
+            line.chars.each_with_index do |char, col|
+              coords << [row, col] if char == "."
+            end
+            data << coords
+          end
         end
-        data.delete("")
         return data
       end
-      []
-    end
 
-    def self.read_size(size)
-      (size ? size.to_i : DEFAULT_GRID_SIZE)
+      []
     end
 
     def self.validations(words, size, gaps)
