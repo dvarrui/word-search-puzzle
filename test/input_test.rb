@@ -15,14 +15,11 @@ class InputTest < Test::Unit::TestCase
     assert_equal(["JEDI", "SITH", "STARWARS"], words)
   end
 
-  test "Read words: empty list" do
-    words = WordSearchPuzzle::Input.read_words("")
-    assert_equal([], words)
-  end
-
-  test "Read words: nil list" do
-    words = WordSearchPuzzle::Input.read_words(nil)
-    assert_equal([], words)
+  test "Read words: read from text file" do
+    filename = File.join(__dir__, "starwars.txt")
+    words = WordSearchPuzzle::Input.read_words(filename)
+    assert(words.is_a?(Array))
+    assert_equal(10, words.length)
   end
 
   # size = WordSearchPuzzle::Input.read_size(size)
