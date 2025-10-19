@@ -9,10 +9,6 @@ module WordSearchPuzzle
       @final_grid = nil
     end
 
-    def solution?
-      !@final_grid.nil?
-    end
-
     def grid
       @final_grid
     end
