@@ -39,9 +39,10 @@ module WordSearchPuzzle
       if File.exist?(gaps)
         lines = File.readlines(gaps)
         lines.delete("")
+
         if gaps.end_with?(".csv")
-          data = lines.map do
-            items = it.split(",")
+          data = lines.map do |line|
+            items = line.split(",")
             [items[0].to_i, items[1].to_i]
           end
         else

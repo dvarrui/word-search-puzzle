@@ -64,7 +64,7 @@ To do this, first we start with a square grid and gradually remove the cells def
 **Example**: Using `gaps` to customize grid shape.
 
 ```
-$ word-search-puzzle create --words=DEATH,STAR --gaps=examples/ball-gaps.csv
+$ word-search-puzzle create --words=DEATH,STAR --gaps=examples/ball-shape.txt
                     
        N L P T      
      O R P S P O    
@@ -73,16 +73,10 @@ $ word-search-puzzle create --words=DEATH,STAR --gaps=examples/ball-gaps.csv
    O P B M R T W K  
    V O I P K A F T  
      H H J N E X    
-       U J D D   
+       U J D D  
+
 ```
 
-**ball-gaps.csv**: csv file where each line represents the row and column coordinates of the cells that will not be used in the grid.
-
-```bash
-$ cat ball-gaps.csv
-0,0
-0,1
-0,2
-0,3
-...
-```
+We can define gaps in two ways:
+1. Using a [TXT file](../examples/ball-shape.txt), where the dot (`.`) character represents a gap and `@` represents an available cell.
+2. Using a [CSV file](../examples/ball-gaps.csv), where each line contains the coordinates (row, column) of a gap.
