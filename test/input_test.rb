@@ -16,7 +16,7 @@ class InputTest < Test::Unit::TestCase
   end
 
   test "Read words: from text file" do
-    filename = File.join(__dir__, "starwars.txt")
+    filename = File.join(__dir__, "files", "starwars.txt")
     words = WordSearchPuzzle::Input.read_words(filename)
     assert(words.is_a?(Array))
     assert_equal(10, words.length)
@@ -38,7 +38,7 @@ class InputTest < Test::Unit::TestCase
   end
 
   test "Read gaps: from csv file" do
-    filename = File.join(__dir__, "ball-gaps.csv")
+    filename = File.join(__dir__, "files", "ball-gaps.csv")
     gaps = WordSearchPuzzle::Input.read_gaps(filename)
     assert(gaps.is_a?(Array))
     assert_equal(48, gaps.length)
@@ -52,7 +52,7 @@ class InputTest < Test::Unit::TestCase
   end
 
   test "Read gaps: from shape file" do
-    filename = File.join(__dir__, "ball-shape.txt")
+    filename = File.join(__dir__, "files", "ball-shape.txt")
     gaps = WordSearchPuzzle::Input.read_gaps(filename)
     assert(gaps.is_a?(Array))
     assert_equal(48, gaps.length)
