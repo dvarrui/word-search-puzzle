@@ -57,4 +57,38 @@ class InputTest < Test::Unit::TestCase
     assert(gaps.is_a?(Array))
     assert_equal(48, gaps.length)
   end
+
+  test "Read validations: empty values" do
+    errors = WordSearchPuzzle::Input.validate([], 10, [])
+    assert_equal(0, errors.length)
+  end
+
+  test "Read validations: force error E01" do
+    words = %w[STARWARS JEDI SITH]
+    errors = WordSearchPuzzle::Input.validate(words, 7, [])
+    assert_equal(1, errors.length)
+    assert(errors[0].start_with?("E01"))
+  end
+
+  test "Read validations: force error E02" do
+    words = ["file_not_found.txt"]
+    errors = WordSearchPuzzle::Input.validate(words, 7, [])
+    assert_equal(2, errors.length)
+    assert(errors[1].start_with?("E02"))
+  end
+
+  test "Read validations: force error E03" do
+    words = %w[DEATH START JEDI SITH YODA OBIWAN]
+    errors = WordSearchPuzzle::Input.validate(words, 5, [])
+    assert_equal(2, errors.length)
+    assert(errors[1].start_with?("E03"))
+  end
+
+  test "Read validations: force error E04" do
+    words = %w[DEATH START]
+    gaps = [[6, 6]]
+    errors = WordSearchPuzzle::Input.validate(words, 5, gaps)
+    assert_equal(1, errors.length)
+    assert(errors[0].start_with?("E04"))
+  end
 end

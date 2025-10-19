@@ -10,7 +10,7 @@ module WordSearchPuzzle
     gaps = WordSearchPuzzle::Input.read_gaps(gaps)
 
     # Validate input values
-    errors = WordSearchPuzzle::Input.validations(words, size, gaps)
+    errors = WordSearchPuzzle::Input.validate(words, size, gaps)
     unless errors.empty?
       puts "Unable to create puzzle:"
       errors.each_with_index { |message, index| puts "#{index + 1}. #{message}" }

@@ -59,25 +59,25 @@ module WordSearchPuzzle
       []
     end
 
-    def self.validations(words, size, gaps)
+    def self.validate(words, size, gaps)
       msg = []
 
       words.each do |word|
-        msg << "The word <#{word}> does not fit in the grid." if word.length > size
+        msg << "E01: The word <#{word}> does not fit in the grid." if word.length > size
       end
 
       if words.size == 1 && msg.size == 1
-        msg << "If <#{words.first}> is a filepath then it was not found."
+        msg << "E02: If <#{words.first}> is a filepath then it was not found."
       end
 
       total_words_size = words.sum { it.length }
       if total_words_size > (size * size - gaps.length)
-        msg << "The grid is not large enough to contain all the words."
+        msg << "E03: The grid is not large enough to contain all the words."
       end
 
       gaps.each do |row, col|
         if row >= size || col >= size
-          msg << "Gap [#{row}, #{col}] outside the grid size."
+          msg << "E04: Gap [#{row}, #{col}] outside the grid size."
         end
       end
       msg
