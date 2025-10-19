@@ -78,4 +78,12 @@ class GridTest < Test::Unit::TestCase
     sequence2 = grid.find_sequence("red", 0, 1, :e)
     assert_equal(3, sequence2.length)
   end
+
+  test "Render output" do
+    grid = WordSearchPuzzle::Grid.new(10)
+    text = grid.render
+    text.split("\n").each do |line|
+      assert_equal(10 * 2, line.length)
+    end
+  end
 end
