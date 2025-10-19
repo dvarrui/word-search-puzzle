@@ -1,5 +1,7 @@
 module WordSearchPuzzle
   class Input
+    DEFAULT_GRID_SIZE = 10
+
     def self.read_words(words)
       if words.is_a? Array
         if words.empty?
@@ -43,7 +45,7 @@ module WordSearchPuzzle
     end
 
     def self.read_size(size)
-      (size ? size.to_i : 10)
+      (size ? size.to_i : DEFAULT_GRID_SIZE)
     end
 
     def self.validations(words, size, gaps)
