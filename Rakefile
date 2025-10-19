@@ -12,3 +12,7 @@ end
 require "standard/rake"
 
 task default: %i[test standard]
+
+task :help do
+  puts "Usage: rake --tasks or rake --help"
+end
