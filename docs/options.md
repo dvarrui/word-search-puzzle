@@ -14,6 +14,38 @@
 * `--words`, Comma separated list of word or file name with de words.
 * `--size`, Grid size. Default value 10.
 
+## Words options
+
+*+Example**: Create puzzle using these words: JEDO, SITH, STARWARS.
+```
+$ word-search-puzzle create --words=JEDI,SITH,STARWARS
+ D S O I D P O V W K
+ N J E D I D H P Q T
+ Q S T L M J Z N R M
+ L T O Y U B S B L P
+ N A K H W Q I K C K
+ G R Y D E I T R I N
+ N W E F H U H U F H
+ R A B S J U G M K U
+ U R V M A F H W D H
+ Q S O S L I V R O C
+```
+
+*+Example**: Create puzzle reading words from TXT file.
+```
+$ word-search-puzzle create --words=examples/starwars.txt 
+ A W L U K E D W Y G
+ O P 3 C R C D G W Z
+ S R A W R A T S E S
+ T Y O D A D N U Q L
+ V R O D A R E P M E
+ A R Y O B I W A N C
+ D H 2 W D F L I G K
+ E Y S D X S N E D N
+ R V H U 2 E B V I W
+ R J F S I T H G S A
+```
+
 ## Size option
 
 **Example**: Create default size puzzle (10 rows and 10 cols).
