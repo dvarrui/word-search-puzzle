@@ -16,7 +16,7 @@
 
 ## Words options
 
-*+Example**: Create puzzle using these words: JEDO, SITH, STARWARS.
+**Example**: Create puzzle using these words: JEDO, SITH, STARWARS.
 ```
 $ word-search-puzzle create --words=JEDI,SITH,STARWARS
  D S O I D P O V W K
@@ -31,7 +31,7 @@ $ word-search-puzzle create --words=JEDI,SITH,STARWARS
  Q S O S L I V R O C
 ```
 
-*+Example**: Create puzzle reading words from TXT file.
+**Example**: Create puzzle reading words from TXT file.
 ```
 $ word-search-puzzle create --words=examples/starwars.txt 
  A W L U K E D W Y G
