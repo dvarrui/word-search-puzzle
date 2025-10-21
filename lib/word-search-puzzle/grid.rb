@@ -16,14 +16,15 @@ module WordSearchPuzzle
       }
     end
     Coord = Data.define(:row, :col, :data)
-    attr_reader :size
+    attr_reader :rows, :cols
 
-    def initialize(size, gaps = [])
-      @size = size
+    def initialize(rows, cols, gaps = [])
+      @rows = rows
+      @cols = cols
       @matrix = []
-      (0...size).each do |row|
+      (0...rows).each do |row|
         data = []
-        (0...size).each { |col| data << Cell.new }
+        (0...cols).each { |col| data << Cell.new }
         @matrix[row] = data
       end
       gaps.each { |x, y| @matrix[x][y].gap! }
@@ -39,7 +40,7 @@ module WordSearchPuzzle
       col = first_col
       coords = []
       word.chars.each do |letter|
-        return [] if row >= @size || col >= @size || row < 0 || col < 0
+        return [] if row >= @rows || col >= @cols || row < 0 || col < 0
 
         cell = @matrix[row][col]
         if cell.empty? || cell.data == letter

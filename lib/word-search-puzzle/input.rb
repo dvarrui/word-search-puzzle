@@ -29,7 +29,17 @@ module WordSearchPuzzle
     end
 
     def self.read_size(size)
-      (size ? size.to_i : DEFAULT_GRID_SIZE)
+      if size.nil?
+        rows = cols = DEFAULT_GRID_SIZE
+      elsif size.is_a? Integer
+        rows = cols = size
+      else
+        values = size.split("x")
+        rows = values[0].to_i
+        rows = (rows < 1) ? DEFAULT_GRID_SIZE : rows
+        cols = (values.size == 2) ? values[1].to_i : rows
+      end
+      [rows, cols]
     end
 
     def self.read_gaps(gaps)
@@ -59,11 +69,11 @@ module WordSearchPuzzle
       []
     end
 
-    def self.validate(words, size, gaps)
+    def self.validate(words, rows, cols, gaps)
       msg = []
 
       words.each do |word|
-        msg << "E01: The word <#{word}> does not fit in the grid." if word.length > size
+        msg << "E01: The word <#{word}> does not fit in the grid." if word.length > [rows, cols].max
       end
 
       if words.size == 1 && msg.size == 1
@@ -71,13 +81,13 @@ module WordSearchPuzzle
       end
 
       total_words_size = words.sum { it.length }
-      if total_words_size > (size * size - gaps.length)
+      if total_words_size > (rows * cols - gaps.length)
         msg << "E03: The grid is not large enough to contain all the words."
       end
 
-      gaps.each do |row, col|
-        if row >= size || col >= size
-          msg << "E04: Gap [#{row}, #{col}] outside the grid size."
+      gaps.each do |y, x|
+        if y >= rows || x >= cols
+          msg << "E04: Gap [#{y}, #{x}] outside the grid size."
         end
       end
       msg

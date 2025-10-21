@@ -28,7 +28,7 @@ class CLI < Thor
 
   - [--words=LIST], comma-separated list of words or file name with the words
 
-  - [--size=SIZE], Grid size. Default value 10.
+  - [--size=SIZE], Grid size. Default value 10x10. Example: 10x20, wheres rows=10 and col=20
 
   - [--color], Indicates whether to display the output with color. Default value false
 
