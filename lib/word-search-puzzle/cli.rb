@@ -28,13 +28,15 @@ class CLI < Thor
 
   - [--words=LIST], comma-separated list of words or file name with the words
 
-  - [--size=SIZE], Grid size. Default value 10x10. Example: 10x20, wheres rows=10 and col=20
+  - [--size=SIZE], Grid size. Default value 10x10.
+  Examples 5:, sets rows=5 and cols=5.
+  Example 10x20: sets rows=10 and col=20.
 
   - [--color], Indicates whether to display the output with color. Default value false
 
-  - [--padding=LIST], comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
+  - [--padding=LIST], comma.separated list of characters to fill puzzle. Default value A-Z.
 
-  - [--gaps=FILEPATH], Filename with list of gaps coordinates
+  - [--gaps=FILEPATH], TEXT file with grid shape, or CSV file with gaps coordinates.
   
   LONGDESC
   def create

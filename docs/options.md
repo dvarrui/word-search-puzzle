@@ -14,6 +14,49 @@
 * `--words`, Comma separated list of word or file name with de words.
 * `--size`, Grid size. Default value 10.
 
+## Size option
+
+**Example**: Create default size puzzle (10 rows and 10 cols).
+```
+$ word-search-puzzle create --words=examples/starwars.txt        
+ X U B R E D A V O B
+ R N S A D O Y B E T
+ 2 A R R F M I Z M Z
+ D X A I L W Q J P D
+ 2 H W F A U D E E N
+ C T R N L M K S R X
+ H J A B H A S E A U
+ G V T W H I I O D N
+ E R S T S E T S O X
+ Q C 3 P O L H W R M
+```
+
+**Example**: Create 8x20 puzzle (8 rows and 20 cols).
+```
+$ word-search-puzzle create --words=examples/starwars.txt --size=8x20
+ C E K U L K W S S I Y I G O B I W A N X
+ L E F A T F S L W O C Y R 2 D 2 I Z P P
+ E Y V S J R N U D O Y L R H X Q O Q N O
+ Y H W T I C H A T V V J F G K R E O M Z
+ P N V Y P S P G J J R I J O P 3 C I S O
+ K Z K X T R O D A R E P M E T L E I A N
+ S R A W R A T S X Z E L O B A W T P Y O
+ D S L L G M N C A V A D E R O H C L L G
+```
+
+*+Example**: Create 9x9 puzzle (rows and 9 cols).
+```
+$ word-search-puzzle create --words=examples/starwars.txt --size=9
+ X R I Y O Y S V B
+ T O O Q B L R H Z
+ J D C V I U A T T
+ A A K A W K W I O
+ O R L D A E R S P
+ N E E E N 2 A I 3
+ M P I R D J T K C
+ L M A 2 K Z S V T
+ R E R G I P N Z W
+```
 # Rendering options
 
 > Used to display the puzzle in different ways.
@@ -22,7 +65,7 @@
 * `--padding=LIST`, comma.separated list of characters to fill in the gaps in the puzzle. Default value A-Z.
 * `--gaps=FILEPATH`, Filename with list of gaps coordinates. List of `row,col` integers.
 
-## Color
+## Color option
 
 The `color` option, highlights the list of words within the puzzle, so we can easily identify their location.
 
@@ -31,7 +74,7 @@ $ word-search-puzzle create --words=DEATH,STAR --color
 ```
 ![](images/color-option.png)
 
-## Padding
+## Padding option
 
 In the puzzle creation process, we first place the word list inside the grid and then fill in the blanks with random letters until the grid is completely filled.
 
@@ -55,7 +98,7 @@ $ word-search-puzzle create --words=DEATH,STAR --padding='+,*,x'
  x x D * x + * * x x
 ```
 
-## Gaps
+## Gaps option
 
 The grid is a group of cell into square or a rectangle shape. However, this program offers us to customize the grid shape.
 
