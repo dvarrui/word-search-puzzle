@@ -12,7 +12,7 @@
 > Used to create different puzzles.
 
 * `--words`, Comma separated list of word or file name with de words.
-* `--size`, Grid size. Default value 10.
+* `--size`, Grid size. Default value 10x10.
 
 ## Words options
 
