@@ -23,17 +23,13 @@ $ word-search-puzzle create --words=JEDI,SITH,STARWARS
 
 **Example**: Create a puzzle showing the final solution. 
 ```
-$ word-search-puzzle create --words=VADER,OBIWAN,LUKE --padding='.'
- . . . V . . . . . .
- . . . . A . . . . .
- . . . . . D . . . .
- . . . . . . E . . .
- . . . . . . . R . .
- . . . . . . . . . .
- . . . . O B I W A N
- . . . . . . . . . .
- . . E K U L . . . .
- . . . . . . . . . .
+$ word-search-puzzle create --words=VADER,OBIWAN,LUKE --padding='.' --size=6x6
+ . R . . . .
+ . . E . . .
+ . . . D . .
+ O B I W A N
+ . . . . . V
+ E K U L . .
 ```
 
 **Example**: Create puzzle reading words from text file.
