@@ -4,6 +4,7 @@ require_relative "lib/word-search-puzzle/version"
 
 Gem::Specification.new do |spec|
   spec.name = "word-search-puzzle"
+  spec.license = "GPL-3.0"
   spec.version = WordSearchPuzzle::VERSION
   spec.authors = ["David Vargas Ruiz"]
   spec.email = ["dvarrui@proton.me"]
