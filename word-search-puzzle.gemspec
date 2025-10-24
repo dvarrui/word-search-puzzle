@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["David Vargas Ruiz"]
   spec.email = ["dvarrui@proton.me"]
 
-  spec.summary = "Create word search puzzles"
+  spec.summary = "Word search puzzles generator. Utility and library."
   # spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "https://github.com/dvarrui/word-search-puzzle"
   spec.required_ruby_version = ">= 3.4.0"

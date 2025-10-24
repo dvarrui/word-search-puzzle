@@ -1,6 +1,6 @@
 # Word Search Puzzle
 
-Ruby gem to create word search puzzles.
+Word search puzzles generator. Utility and library.
 
 ## Installation
 
