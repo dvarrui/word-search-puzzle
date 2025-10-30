@@ -1,4 +1,25 @@
-class Cell
-    attr_reader data: Char
-    attr_reader count: Integer
+module WordSearchPuzzle
+  class Cell
+    @count: untyped
+
+    @data: untyped
+
+    attr_reader data: untyped
+
+    attr_reader count: untyped
+
+    def initialize: () -> void
+
+    def empty?: () -> untyped
+
+    def gap?: () -> untyped
+
+    def gap!: () -> untyped
+
+    def in_use?: () -> untyped
+
+    def push: (untyped data) -> untyped
+
+    def pop: () -> untyped
+  end
 end
