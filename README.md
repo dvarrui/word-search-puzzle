@@ -1,5 +1,8 @@
 # Word Search Puzzle
 
+[![Gem Version](https://badge.fury.io/rb/word-search-puzzle.svg?icon=si%3Arubygems)](https://badge.fury.io/rb/word-search-puzzle)
+![GitHub](https://img.shields.io/github/license/dvarrui/word-search-puzzle)
+
 Word search puzzles generator. Utility and library.
 
 ## Installation
